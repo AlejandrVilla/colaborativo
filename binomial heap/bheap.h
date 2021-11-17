@@ -27,13 +27,22 @@ public:
 
 //------------------------------
 template <class T>
-NodoB<T>* BHeaps<T>::Unir(NodoB<T> *p, NodoB<T> *q)
+NodoB<T> *BHeaps<T>::Unir(NodoB<T> *p, NodoB<T> *q)
 {
     // Unir dos arboles binomiales de grado k-1, en un arbol binomial de grado k
     // Asegurar que el puntero al padre se actualize
-    std::cout << "Make your code here" << '\n';
-
+	if(q -> m_Dato > p -> m_Dato) {
+		q -> m_Padre = p;
+		(p -> m_pSons).push_front(q);
+		p -> m_Grado ++;
+		return p;
+    }
+    p -> m_Padre = q;
+    (q -> m_pSons).push_front(p);
+    q -> m_Grado ++;
+    return q;
 }
+
 template <class T>
 void BHeaps<T>::Compactar()
 {
