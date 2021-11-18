@@ -13,7 +13,7 @@ int main()
     BH.print();
     BH.Insert(2);
     BH.print();
-    BH.Save_Dot("binaryheap.dot");
+    BH.Show_Dot();
 
     return 1;
 }
