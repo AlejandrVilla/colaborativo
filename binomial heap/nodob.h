@@ -12,12 +12,11 @@ public:
     NodoB<T> *m_Padre;
 
 public:
-    NodoB(T) :
+    NodoB(T);
 };
 
 template <class T>
-NodoB<T>::NodoB(T d)
-{
+NodoB<T>::NodoB(T d){
     m_Grado = 0;
     m_Dato = d;
     m_Padre = 0;

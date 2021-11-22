@@ -4,34 +4,34 @@
 #include <list>
 #include <iostream>
 #include <vector>
-
+#include <fstream>
+using namespace std; 
 template <class T>
 class BHeaps
 {
-private:
-    std::list<NodoB<T> *> m_Roots;
-    NodoB<T> *m_Min;
+    private:
+        std::list<NodoB<T> *> m_Roots;
+        NodoB<T> *m_Min;
 
-private:
-    NodoB<T> *Unir(NodoB<T> *p, NodoB<T> *q);       // falta julio
-    void Compactar();                               // falta alejandro
+    private:
+        NodoB<T> *Unir(NodoB<T> *p, NodoB<T> *q);       // falta julio
+        void Compactar();                               // falta alejandro
 
-public:
-    BHeaps(){}
-    void Insert(T d);                       // O(log(n))
-    void Delete(NodoB<T> *e);               // O(log(n))
-    void Decrease_key(NodoB<T> *&p, T val); // O(log(n))
-    void Extrac_Min();                      // O(log(n))
-    void Show_Dot();                                // falta samuel
-    T GetMin(); // O(1)
+    public:
+        BHeaps(){}
+        void Insert(T d);                       // O(log(n))
+        void Delete(NodoB<T> *e);               // O(log(n))
+        void Decrease_key(NodoB<T> *&p, T val); // O(log(n))
+        void Extrac_Min();                      // O(log(n))
+        void recorrer(ostream &, NodoB<T>*);
+        void Show_Dot();                                // falta samuel
+        T GetMin(); // O(1)
 
-    void print();
+        void print();
 };
 
-//------------------------------
 template <class T>
-NodoB<T>* BHeaps<T>::Unir(NodoB<T> *p, NodoB<T> *q)
-{
+NodoB<T>* BHeaps<T>::Unir(NodoB<T> *p, NodoB<T> *q){
     // Unir dos arboles binomiales de grado k-1, en un arbol binomial de grado k
     // Asegurar que el puntero al padre se actualize
     if(q -> m_Dato > p -> m_Dato) {
@@ -47,8 +47,7 @@ NodoB<T>* BHeaps<T>::Unir(NodoB<T> *p, NodoB<T> *q)
 }
 
 template <class T>
-void BHeaps<T>::Compactar()
-{
+void BHeaps<T>::Compactar(){
     // Verificar que todos los nodos de la raiz tengan un grado distinto.
     // En caso tengan el mimo grado, entonces llama  a Unir
     // Colocar el puntero al menor en el menor de los nodos raiz
@@ -85,10 +84,8 @@ void BHeaps<T>::Compactar()
     }
 }
 
-//--------------------------------
 template <class T>
-void BHeaps<T>::Insert(T d)
-{
+void BHeaps<T>::Insert(T d){
     NodoB<T> *pNew = new NodoB<T>(d); // O(1)
     m_Roots.push_front(pNew);         // O(1)
     Compactar();                      // O(log(n))
@@ -96,16 +93,14 @@ void BHeaps<T>::Insert(T d)
 }
 
 template <class T>
-void BHeaps<T>::Delete(NodoB<T> *e)
-{
+void BHeaps<T>::Delete(NodoB<T> *e){
     Decrease_key(e, m_Min->dato - 1); // O(log(n))
     m_Min = e;                        // O(1)
     Extrac_Min();                     // O(log(n))
 }
 
 template <class T>
-void BHeaps<T>::Decrease_key(NodoB<T> *&p, T val)
-{
+void BHeaps<T>::Decrease_key(NodoB<T> *&p, T val){
     p->m_Dato = val; // O(1)
     while (p->m_Padre && p->m_Dato < p->m_Padre->m_Dato)
     {
@@ -119,14 +114,12 @@ void BHeaps<T>::Decrease_key(NodoB<T> *&p, T val)
 }
 
 template <class T>
-T BHeaps<T>::GetMin()
-{
+T BHeaps<T>::GetMin(){
     return m_Min->m_Dato; // O(1)
 }
 
 template <class T>
-void BHeaps<T>::Extrac_Min()
-{
+void BHeaps<T>::Extrac_Min(){
     typename std::list<NodoB<T> *>::iterator it;
     it = m_Min->m_pSons.begin();
     for (; it != m_Min->m_pSons.end(); ++it)
@@ -136,19 +129,32 @@ void BHeaps<T>::Extrac_Min()
     Compactar();           // O(log(n))
 }
 
-template <class T>
-void BHeaps<T>::Show_Dot()
-{
-    std::cout << "Make your code here" << '\n';
+template<class T>
+void BHeaps<T>::recorrer(ostream &os, NodoB<T>* node){
+    os << node->m_Dato << "[color = white fontcolor = white label = \"<f0> | {{<f1> " << node->m_Dato << "} | FE=" << node->m_Grado << "} | <f2> \" style = filled fillcolor = \"#AE2115\" ]";
+    for(NodoB<T>*raiz : node->m_pSons){
+        os << node->m_Dato << ":f0 -> " << raiz->m_Dato << ":f1 [color = \"#AE2115\"];\n";
+        recorrer(os,raiz);
+    }
+    return;
 }
 
-template<class T>
-void BHeaps<T>::print()
-{
-    typename std::list<NodoB<T>* >::iterator it = m_Roots.begin();
-    for(;it!=m_Roots.end();++it)
-        std::cout<<(*it)->m_Dato<<' ';
-    std::cout<<'\n';
+template <typename T>
+void BHeaps<T>::Show_Dot(){
+    ofstream os;
+    os.open("graph.dot");
+    os << "digraph G {\n";
+    os << "rankdir=\"LR\"\n";
+    os << "label= \"Binary Heap\";\n";
+    os << "fontcolor = white\n";
+    os << "bgcolor = \"black\"\n";
+    os << "node [shape = record];\n";
+    for(NodoB<T>* raiz:m_Roots)
+        recorrer(os,raiz);
+    os << "}" << endl;
+    system("dot -Tjpg -O graph.dot");
+    system("graph.dot.jpg");
 }
+
 
 #endif
