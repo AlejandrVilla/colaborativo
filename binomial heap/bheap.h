@@ -53,8 +53,7 @@ void BHeaps<T>::Compactar(){
     // Colocar el puntero al menor en el menor de los nodos raiz
     if( m_Roots.size() == 1 )
         m_Min = *(m_Roots.begin());
-    else if( m_Roots.size() > 1 )
-    {
+    else if( m_Roots.size() > 1 ){
         typename std::list<NodoB<T>* >::iterator last = --(m_Roots.end());
         std::vector<NodoB<T>* > grades((*last)->m_Grado+2,nullptr);
 
@@ -79,7 +78,7 @@ void BHeaps<T>::Compactar(){
         typename std::list<NodoB<T>* >::iterator it = m_Roots.begin();
         m_Min = *it;
         for( ; it!=m_Roots.end() ; ++it )
-            if( (*it)->m_Grado < m_Min->m_Grado )
+            if( (*it)->m_Dato < m_Min->m_Dato )
                 m_Min = *it;
     }
 }
@@ -144,7 +143,7 @@ void BHeaps<T>::Show_Dot(){
     ofstream os;
     os.open("graph.dot");
     os << "digraph G {\n";
-    os << "rankdir=\"LR\"\n";
+    os << "rankdir=\"TB\"\n";
     os << "label= \"Binary Heap\";\n";
     os << "fontcolor = white\n";
     os << "bgcolor = \"black\"\n";
