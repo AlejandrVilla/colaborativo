@@ -19,7 +19,7 @@ class BHeaps
 
     public:
         BHeaps(){}
-        ~BHeaps();
+        //~BHeaps();
         void Insert(T d);                       // O(log(n))
         void Delete(NodoB<T> *e);               // O(log(n))
         void Decrease_key(NodoB<T> *&p, T val); // O(log(n))
@@ -31,13 +31,13 @@ class BHeaps
         void print();
 };
 
-template <class T>
-BHeaps<T>::~BHeaps(){
-    typename std::list<NodoB<T>*>::iterator it=m_Roots.begin();
-    for(;it!=m_Roots.end();++it)
-        (*it)->autodestruir(*it);
-    std::cout<<"se destruyo correctamente\n";
-}
+// template <class T>
+// BHeaps<T>::~BHeaps(){
+//     typename std::list<NodoB<T>*>::iterator it=m_Roots.begin();
+//     for(;it!=m_Roots.end();++it)
+//         (*it)->autodestruir(*it);
+//     std::cout<<"se destruyo correctamente\n";
+// }
 
 template <class T>
 NodoB<T>* BHeaps<T>::Unir(NodoB<T> *p, NodoB<T> *q){
@@ -97,7 +97,7 @@ void BHeaps<T>::Insert(T d){
     NodoB<T> *pNew = new NodoB<T>(d); // O(1)
     m_Roots.push_front(pNew);         // O(1)
     Compactar();                      // O(log(n))
-    cout<<"-------ELEMENTO INSERTADO CORRECTAMENTE-------\n";
+    cout<<"-------ELEMENTO " << d << " INSERTADO CORRECTAMENTE-------\n";
 }
 
 template <class T>
