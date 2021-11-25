@@ -19,7 +19,7 @@ class BHeaps
 
     public:
         BHeaps(){}
-        //~BHeaps();
+        ~BHeaps();
         void Insert(T d);                       // O(log(n))
         void Delete(NodoB<T> *e);               // O(log(n))
         void Decrease_key(NodoB<T> *&p, T val); // O(log(n))
@@ -31,13 +31,13 @@ class BHeaps
         void print();
 };
 
-// template <class T>
-// BHeaps<T>::~BHeaps(){
-//     typename std::list<NodoB<T>*>::iterator it=m_Roots.begin();
-//     for(;it!=m_Roots.end();++it)
-//         (*it)->autodestruir(*it);
-//     std::cout<<"se destruyo correctamente\n";
-// }
+template <class T>
+BHeaps<T>::~BHeaps(){
+    typename std::list<NodoB<T>*>::iterator it=m_Roots.begin();
+    for(;it!=m_Roots.end();++it)
+        (*it)->autodestruir(*it);
+    std::cout<<"se destruyo correctamente\n";
+}
 
 template <class T>
 NodoB<T>* BHeaps<T>::Unir(NodoB<T> *p, NodoB<T> *q){
@@ -64,7 +64,7 @@ void BHeaps<T>::Compactar(){
         m_Min = *(m_Roots.begin());
     else if( m_Roots.size() > 1 ){
         typename std::list<NodoB<T>* >::iterator last = --(m_Roots.end());
-        std::vector<NodoB<T>* > grades((*last)->m_Grado+2,nullptr);
+        std::vector<NodoB<T>* > grades(20,nullptr);
 
         typename std::list<NodoB<T>* >::iterator p = m_Roots.begin();
         for( ; p!=m_Roots.end() ; ++p )
@@ -139,7 +139,7 @@ void BHeaps<T>::Extrac_Min(){
 
 template<class T>
 void BHeaps<T>::recorrer(ostream &os, NodoB<T>* node){
-    os << node->m_Dato << "[color = white fontcolor = white label = \"<f0> | {{<f1> " << node->m_Dato << "} | FE=" << node->m_Grado << "} | <f2> \" style = filled fillcolor = \"#AE2115\" ]";
+    os << node->m_Dato << "[color = white fontcolor = white label = \"<f0> | {{<f1> " << node->m_Dato << "} | G=" << node->m_Grado << "} | <f2> \" style = filled fillcolor = \"#AE2115\" ]";
     for(NodoB<T>*raiz : node->m_pSons){
         os << node->m_Dato << ":f0 -> " << raiz->m_Dato << ":f1 [color = \"#AE2115\"];\n";
         recorrer(os,raiz);
