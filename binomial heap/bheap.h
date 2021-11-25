@@ -24,7 +24,7 @@ class BHeaps
         void Decrease_key(NodoB<T> *&p, T val); // O(log(n))
         void Extrac_Min();                      // O(log(n))
         void recorrer(ostream &, NodoB<T>*);
-        void Show_Dot();                                // falta samuel
+        void Show_Dot(ostream &);                                // falta samuel
         T GetMin(); // O(1)
 
         void print();
@@ -93,9 +93,9 @@ void BHeaps<T>::Insert(T d){
 
 template <class T>
 void BHeaps<T>::Delete(NodoB<T> *e){
-    Decrease_key(e, m_Min->dato - 1); // O(log(n))
-    m_Min = e;                        // O(1)
-    Extrac_Min();                     // O(log(n))
+    Decrease_key(e, m_Min->dato - 1);
+    m_Min = e;                       
+    Extrac_Min();                   
 }
 
 template <class T>
@@ -108,7 +108,7 @@ void BHeaps<T>::Decrease_key(NodoB<T> *&p, T val){
     } // O(log(n))
 
     // Nota: En caso que val sea menor que el mínimo, actualizar el puntero al mínimo
-    if( p->m_Grado < m_Min->m_Grado )
+    if( p->m_Dato < m_Min->m_Dato )
         m_Min = p;
 }
 
@@ -122,10 +122,10 @@ void BHeaps<T>::Extrac_Min(){
     typename std::list<NodoB<T> *>::iterator it;
     it = m_Min->m_pSons.begin();
     for (; it != m_Min->m_pSons.end(); ++it)
-        m_Roots.push_front(*it); // O(log(n))
+        m_Roots.push_front(*it); 
 
-    m_Roots.remove(m_Min); // O(log(n))
-    Compactar();           // O(log(n))
+    m_Roots.remove(m_Min); 
+    Compactar();           
 }
 
 template<class T>
@@ -139,9 +139,7 @@ void BHeaps<T>::recorrer(ostream &os, NodoB<T>* node){
 }
 
 template <typename T>
-void BHeaps<T>::Show_Dot(){
-    ofstream os;
-    os.open("graph.dot");
+void BHeaps<T>::Show_Dot(ostream &os){
     os << "digraph G {\n";
     os << "rankdir=\"TB\"\n";
     os << "label= \"Binary Heap\";\n";
@@ -151,8 +149,6 @@ void BHeaps<T>::Show_Dot(){
     for(NodoB<T>* raiz:m_Roots)
         recorrer(os,raiz);
     os << "}" << endl;
-    system("dot -Tjpg -O graph.dot");
-    system("graph.dot.jpg");
 }
 
 

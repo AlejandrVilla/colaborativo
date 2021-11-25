@@ -1,0 +1,48 @@
+digraph G {
+rankdir="TB"
+label= "Binary Heap";
+fontcolor = white
+bgcolor = "black"
+node [shape = record];
+253[color = white fontcolor = white label = "<f0> | {{<f1> 253} | FE=0} | <f2> " style = filled fillcolor = "#AE2115" ]257[color = white fontcolor = white label = "<f0> | {{<f1> 257} | FE=5} | <f2> " style = filled fillcolor = "#AE2115" ]257:f0 -> 328:f1 [color = "#AE2115"];
+328[color = white fontcolor = white label = "<f0> | {{<f1> 328} | FE=4} | <f2> " style = filled fillcolor = "#AE2115" ]328:f0 -> 340:f1 [color = "#AE2115"];
+340[color = white fontcolor = white label = "<f0> | {{<f1> 340} | FE=3} | <f2> " style = filled fillcolor = "#AE2115" ]340:f0 -> 348:f1 [color = "#AE2115"];
+348[color = white fontcolor = white label = "<f0> | {{<f1> 348} | FE=2} | <f2> " style = filled fillcolor = "#AE2115" ]348:f0 -> 351:f1 [color = "#AE2115"];
+351[color = white fontcolor = white label = "<f0> | {{<f1> 351} | FE=1} | <f2> " style = filled fillcolor = "#AE2115" ]351:f0 -> 352:f1 [color = "#AE2115"];
+352[color = white fontcolor = white label = "<f0> | {{<f1> 352} | FE=0} | <f2> " style = filled fillcolor = "#AE2115" ]348:f0 -> 350:f1 [color = "#AE2115"];
+350[color = white fontcolor = white label = "<f0> | {{<f1> 350} | FE=0} | <f2> " style = filled fillcolor = "#AE2115" ]340:f0 -> 342:f1 [color = "#AE2115"];
+342[color = white fontcolor = white label = "<f0> | {{<f1> 342} | FE=1} | <f2> " style = filled fillcolor = "#AE2115" ]342:f0 -> 343:f1 [color = "#AE2115"];
+343[color = white fontcolor = white label = "<f0> | {{<f1> 343} | FE=0} | <f2> " style = filled fillcolor = "#AE2115" ]340:f0 -> 341:f1 [color = "#AE2115"];
+341[color = white fontcolor = white label = "<f0> | {{<f1> 341} | FE=0} | <f2> " style = filled fillcolor = "#AE2115" ]328:f0 -> 335:f1 [color = "#AE2115"];
+335[color = white fontcolor = white label = "<f0> | {{<f1> 335} | FE=2} | <f2> " style = filled fillcolor = "#AE2115" ]335:f0 -> 337:f1 [color = "#AE2115"];
+337[color = white fontcolor = white label = "<f0> | {{<f1> 337} | FE=1} | <f2> " style = filled fillcolor = "#AE2115" ]337:f0 -> 338:f1 [color = "#AE2115"];
+338[color = white fontcolor = white label = "<f0> | {{<f1> 338} | FE=0} | <f2> " style = filled fillcolor = "#AE2115" ]335:f0 -> 336:f1 [color = "#AE2115"];
+336[color = white fontcolor = white label = "<f0> | {{<f1> 336} | FE=0} | <f2> " style = filled fillcolor = "#AE2115" ]328:f0 -> 333:f1 [color = "#AE2115"];
+333[color = white fontcolor = white label = "<f0> | {{<f1> 333} | FE=1} | <f2> " style = filled fillcolor = "#AE2115" ]333:f0 -> 334:f1 [color = "#AE2115"];
+334[color = white fontcolor = white label = "<f0> | {{<f1> 334} | FE=0} | <f2> " style = filled fillcolor = "#AE2115" ]328:f0 -> 329:f1 [color = "#AE2115"];
+329[color = white fontcolor = white label = "<f0> | {{<f1> 329} | FE=0} | <f2> " style = filled fillcolor = "#AE2115" ]257:f0 -> 274:f1 [color = "#AE2115"];
+274[color = white fontcolor = white label = "<f0> | {{<f1> 274} | FE=3} | <f2> " style = filled fillcolor = "#AE2115" ]274:f0 -> 284:f1 [color = "#AE2115"];
+284[color = white fontcolor = white label = "<f0> | {{<f1> 284} | FE=2} | <f2> " style = filled fillcolor = "#AE2115" ]284:f0 -> 312:f1 [color = "#AE2115"];
+312[color = white fontcolor = white label = "<f0> | {{<f1> 312} | FE=1} | <f2> " style = filled fillcolor = "#AE2115" ]312:f0 -> 319:f1 [color = "#AE2115"];
+319[color = white fontcolor = white label = "<f0> | {{<f1> 319} | FE=0} | <f2> " style = filled fillcolor = "#AE2115" ]284:f0 -> 298:f1 [color = "#AE2115"];
+298[color = white fontcolor = white label = "<f0> | {{<f1> 298} | FE=0} | <f2> " style = filled fillcolor = "#AE2115" ]274:f0 -> 279:f1 [color = "#AE2115"];
+279[color = white fontcolor = white label = "<f0> | {{<f1> 279} | FE=1} | <f2> " style = filled fillcolor = "#AE2115" ]279:f0 -> 282:f1 [color = "#AE2115"];
+282[color = white fontcolor = white label = "<f0> | {{<f1> 282} | FE=0} | <f2> " style = filled fillcolor = "#AE2115" ]274:f0 -> 278:f1 [color = "#AE2115"];
+278[color = white fontcolor = white label = "<f0> | {{<f1> 278} | FE=0} | <f2> " style = filled fillcolor = "#AE2115" ]257:f0 -> 263:f1 [color = "#AE2115"];
+263[color = white fontcolor = white label = "<f0> | {{<f1> 263} | FE=2} | <f2> " style = filled fillcolor = "#AE2115" ]263:f0 -> 270:f1 [color = "#AE2115"];
+270[color = white fontcolor = white label = "<f0> | {{<f1> 270} | FE=1} | <f2> " style = filled fillcolor = "#AE2115" ]270:f0 -> 271:f1 [color = "#AE2115"];
+271[color = white fontcolor = white label = "<f0> | {{<f1> 271} | FE=0} | <f2> " style = filled fillcolor = "#AE2115" ]263:f0 -> 264:f1 [color = "#AE2115"];
+264[color = white fontcolor = white label = "<f0> | {{<f1> 264} | FE=0} | <f2> " style = filled fillcolor = "#AE2115" ]257:f0 -> 415:f1 [color = "#AE2115"];
+415[color = white fontcolor = white label = "<f0> | {{<f1> 415} | FE=1} | <f2> " style = filled fillcolor = "#AE2115" ]415:f0 -> 416:f1 [color = "#AE2115"];
+416[color = white fontcolor = white label = "<f0> | {{<f1> 416} | FE=0} | <f2> " style = filled fillcolor = "#AE2115" ]257:f0 -> 260:f1 [color = "#AE2115"];
+260[color = white fontcolor = white label = "<f0> | {{<f1> 260} | FE=0} | <f2> " style = filled fillcolor = "#AE2115" ]394[color = white fontcolor = white label = "<f0> | {{<f1> 394} | FE=2} | <f2> " style = filled fillcolor = "#AE2115" ]394:f0 -> 403:f1 [color = "#AE2115"];
+403[color = white fontcolor = white label = "<f0> | {{<f1> 403} | FE=1} | <f2> " style = filled fillcolor = "#AE2115" ]403:f0 -> 406:f1 [color = "#AE2115"];
+406[color = white fontcolor = white label = "<f0> | {{<f1> 406} | FE=0} | <f2> " style = filled fillcolor = "#AE2115" ]394:f0 -> 401:f1 [color = "#AE2115"];
+401[color = white fontcolor = white label = "<f0> | {{<f1> 401} | FE=0} | <f2> " style = filled fillcolor = "#AE2115" ]356[color = white fontcolor = white label = "<f0> | {{<f1> 356} | FE=3} | <f2> " style = filled fillcolor = "#AE2115" ]356:f0 -> 378:f1 [color = "#AE2115"];
+378[color = white fontcolor = white label = "<f0> | {{<f1> 378} | FE=2} | <f2> " style = filled fillcolor = "#AE2115" ]378:f0 -> 392:f1 [color = "#AE2115"];
+392[color = white fontcolor = white label = "<f0> | {{<f1> 392} | FE=1} | <f2> " style = filled fillcolor = "#AE2115" ]392:f0 -> 393:f1 [color = "#AE2115"];
+393[color = white fontcolor = white label = "<f0> | {{<f1> 393} | FE=0} | <f2> " style = filled fillcolor = "#AE2115" ]378:f0 -> 385:f1 [color = "#AE2115"];
+385[color = white fontcolor = white label = "<f0> | {{<f1> 385} | FE=0} | <f2> " style = filled fillcolor = "#AE2115" ]356:f0 -> 371:f1 [color = "#AE2115"];
+371[color = white fontcolor = white label = "<f0> | {{<f1> 371} | FE=1} | <f2> " style = filled fillcolor = "#AE2115" ]371:f0 -> 376:f1 [color = "#AE2115"];
+376[color = white fontcolor = white label = "<f0> | {{<f1> 376} | FE=0} | <f2> " style = filled fillcolor = "#AE2115" ]356:f0 -> 359:f1 [color = "#AE2115"];
+359[color = white fontcolor = white label = "<f0> | {{<f1> 359} | FE=0} | <f2> " style = filled fillcolor = "#AE2115" ]}
