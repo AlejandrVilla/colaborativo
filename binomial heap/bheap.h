@@ -30,6 +30,7 @@ class BHeaps
 
         void print();
 };
+
 template <class T>
 BHeaps<T>::~BHeaps(){
     typename std::list<NodoB<T>*>::iterator it=m_Roots.begin();
@@ -96,7 +97,7 @@ void BHeaps<T>::Insert(T d){
     NodoB<T> *pNew = new NodoB<T>(d); // O(1)
     m_Roots.push_front(pNew);         // O(1)
     Compactar();                      // O(log(n))
-    std::cout<<"Se inserto\n";
+    cout<<"-------ELEMENTO INSERTADO CORRECTAMENTE-------\n";
 }
 
 template <class T>
@@ -157,7 +158,7 @@ void BHeaps<T>::Show_Dot(ostream &os){
     for(NodoB<T>* raiz:m_Roots)
         recorrer(os,raiz);
     os << "}" << endl;
+    cout << "-------ARCHIVO .DOT GENERADO-------\n";
 }
-
 
 #endif

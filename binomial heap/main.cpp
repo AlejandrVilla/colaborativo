@@ -21,14 +21,14 @@ int main(){
         BH.Insert(i);
     }
     //Primer resultado del heap
-    cout<<BH.GetMin()<<'\n'; // Dato min
+    cout<< "Elemento minimo encontrado: "<<BH.GetMin()<<'\n'; // Dato min
     BH.Show_Dot(os);
     os.close();
     system("dot -Tjpg -O graph.dot");
     system("graph.dot.jpg");
     //Extraccion del minimo elemento
     BH.Extrac_Min();
-    cout<<BH.GetMin()<<'\n'; // Dato min
+    cout<< "Elemento minimo encontrado: " << BH.GetMin()<<'\n'; // Dato min
     ofstream os2;
     os2.open("eli.dot");
     //Segundo resultado despues de la aplicacion del Extrac_Min();
