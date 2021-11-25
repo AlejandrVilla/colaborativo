@@ -19,6 +19,7 @@ class BHeaps
 
     public:
         BHeaps(){}
+        ~BHeaps();
         void Insert(T d);                       // O(log(n))
         void Delete(NodoB<T> *e);               // O(log(n))
         void Decrease_key(NodoB<T> *&p, T val); // O(log(n))
@@ -29,6 +30,13 @@ class BHeaps
 
         void print();
 };
+template <class T>
+BHeaps<T>::~BHeaps(){
+    typename std::list<NodoB<T>*>::iterator it=m_Roots.begin();
+    for(;it!=m_Roots.end();++it)
+        (*it)->autodestruir(*it);
+    std::cout<<"se destruyo correctamente\n";
+}
 
 template <class T>
 NodoB<T>* BHeaps<T>::Unir(NodoB<T> *p, NodoB<T> *q){
