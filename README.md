@@ -9,9 +9,11 @@ Algoritmos y estructuras de Datos
 
 Binary Heap:
 - Resultados de ejecucion:
+  
   <img src="https://github.com/AlejandrVilla/colaborativo/blob/main/binary%20heap/evidencia%20min%20heap.png" width="400" height="600">
 
 Binomial Heap:
+
 - Resultados de ejecucion:
   
   Antes de las operaciones:
